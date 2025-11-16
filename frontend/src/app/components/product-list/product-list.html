@@ -1,0 +1,15 @@
+<div class="product-list-container">
+  <h2>Lista de Productos</h2>
+  <a (click)="navigateToCreate()" class="toggle-form-button">Crear Nuevo Producto</a>
+  <div class="products-grid">
+    @for (product of products; track product.id) {
+    <app-product-card
+      [product]="product"
+      (deleteProduct)="onDeleteProduct($event)"
+      (editProduct)="onEditProduct($event)"
+    ></app-product-card>
+    } @empty {
+    <p class="empty-message">No hay productos disponibles</p>
+    }
+  </div>
+</div>
